@@ -1,0 +1,22 @@
+{
+	"name": "unbound-plugin-template",
+	"version": "1.0.0",
+	"description": "Plugin template for Unbound.",
+	"main": "index.js",
+	"scripts": {
+		"build": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Mario <mariovparaschiv@gmail.com> (github.com/localip)",
+	"license": "Unlicensed",
+	"dependencies": {
+		"unbound-types": "link:C:/Users/eternal/Documents/Projects/TypeScript/unbound-types-gen/packages/unbound-types"
+	},
+	"devDependencies": {
+		"@rollup/plugin-json": "^6.1.0",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"rollup": "^4.10.0",
+		"rollup-plugin-swc3": "^0.11.0",
+		"rollup-plugin-typescript-paths": "^1.5.0"
+	}
+}

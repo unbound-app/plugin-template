@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"downlevelIteration": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"target": "ESNext",
+		"resolveJsonModule": true,
+		"module": "ESNext",
+		"jsx": "react",
+		"baseUrl": "src",
+		"paths": {
+			"~/*": [
+				"*"
+			]
+		},
+		"types": [
+			"unbound-types"
+		]
+	}
+}
