@@ -7,7 +7,7 @@
 		"build": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "Mario <mariovparaschiv@gmail.com> (github.com/localip)",
+	"author": "Mario <me@marioparaschiv.com> (github.com/marioparaschiv)",
 	"license": "Unlicensed",
 	"dependencies": {
 		"unbound-types": "link:C:/Users/eternal/Documents/Projects/TypeScript/unbound-types-gen/packages/unbound-types"
