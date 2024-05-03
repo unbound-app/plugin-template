@@ -1,3 +1,6 @@
+import { Button, Text, View } from 'react-native';
+import moment from 'moment';
+
 class Plugin {
 	start() {
 		alert('Started!');
@@ -11,12 +14,16 @@ class Plugin {
 		const store = settings.useSettingsStore();
 		const count = store.get('count', 0);
 
-		return <ReactNative.View>
-			<ReactNative.Button title='Click Me' />
-			{count} clicks
-		</ReactNative.View>;
+		return <View>
+			<Text>
+				Last Updated: {moment().toString()}
+			</Text>
+			<Button onPress={() => store.set('count', 0)} title='Clicks' />
+			<Text>
+				{count}
+			</Text>
+		</View>;
 	}
 }
 
 export default Plugin;
-export const hey = {};

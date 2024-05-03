@@ -1,4 +1,11 @@
 {
+	"typeAcquisition": {
+		"enable": true,
+		"include": [
+			"node_modules/@types",
+			"node_modules/@unbound-mod"
+		],
+	},
 	"compilerOptions": {
 		"downlevelIteration": true,
 		"moduleResolution": "node",
@@ -8,9 +15,6 @@
 		"module": "ESNext",
 		"jsx": "react",
 		"baseUrl": "src",
-		"typeRoots": [
-			"node_modules/@unbound-mod"
-		],
 		"paths": {
 			"~/*": [
 				"*"

@@ -5,6 +5,12 @@
 			"syntax": "typescript",
 			"tsx": true,
 			"dynamicImport": true
+		},
+		"transform": {
+			"react": {
+				"pragma": "window.React.createElement",
+				"pragmaFrag": "window.React.Fragment"
+			}
 		}
 	},
 	"env": {
