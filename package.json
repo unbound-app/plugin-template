@@ -4,18 +4,19 @@
 	"description": "Plugin template for Unbound.",
 	"main": "index.js",
 	"scripts": {
-		"build": "echo \"Error: no test specified\" && exit 1"
+		"build": "node build.mjs"
 	},
 	"keywords": [],
 	"author": "Mario <me@marioparaschiv.com> (github.com/marioparaschiv)",
 	"license": "Unlicensed",
 	"dependencies": {
-		"unbound-types": "link:C:/Users/eternal/Documents/Projects/TypeScript/unbound-types-gen/packages/unbound-types"
+		"@unbound-mod/types": "link:C:/Users/eternal/Documents/Projects/TypeScript/unbound-types-gen/packages/unbound-types"
 	},
 	"devDependencies": {
 		"@rollup/plugin-json": "^6.1.0",
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"rollup": "^4.10.0",
+		"rollup-plugin-iife": "github:unbound-mod/rollup-plugin-iife",
 		"rollup-plugin-swc3": "^0.11.0",
 		"rollup-plugin-typescript-paths": "^1.5.0"
 	}

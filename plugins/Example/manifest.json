@@ -1,0 +1,11 @@
+{
+	"name": "Example Plugin",
+	"description": "This is an example addon.",
+	"authors": [
+		{
+			"name": "eternal",
+			"id": "263689920210534400"
+		}
+	],
+	"main": "index.tsx"
+}

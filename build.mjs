@@ -4,20 +4,11 @@ import { rollup } from 'rollup';
 
 import { typescriptPaths as paths } from 'rollup-plugin-typescript-paths';
 import { nodeResolve as node } from '@rollup/plugin-node-resolve';
-import { swc, minify } from 'rollup-plugin-swc3';
+import { swc } from 'rollup-plugin-swc3';
+import { existsSync, statSync } from 'fs';
 import json from '@rollup/plugin-json';
-
-
-/** @type import('rollup').InputPluginOption */
-const plugins = [
-	paths(),
-	node(),
-	json(),
-	swc({ tsconfig: false }),
-	minify({ compress: true, mangle: true }),
-];
-
-const plugs = await readdir('./plugins');
+import iife from 'rollup-plugin-iife';
+import { minify } from 'rollup-plugin-swc3';
 
 const map = {
 	'react': 'window.React',
@@ -25,16 +16,40 @@ const map = {
 	'react-native-reanimated': 'window.unbound.metro.common.Reanimated'
 };
 
+/** @type import('rollup').InputPluginOption */
+const plugins = [
+	paths(),
+	node(),
+	json(),
+	swc({ tsconfig: false }),
+	iife(),
+	minify({ compress: false })
+];
+
+const plugs = await readdir('./plugins');
+
 for (let plug of plugs) {
-	const manifest = JSON.parse(await readFile(`./plugins/${plug}/manifest.json`));
+	const isDirectory = statSync(`./plugins/${plug}`).isDirectory();
+	if (!isDirectory) continue;
+
+	if (!existsSync(`./plugins/${plug}/manifest.json`)) {
+		console.warn(`${plug} is missing a manifest. Skipping it.`);
+		continue;
+	}
+
+	const manifestContent = await readFile(`./plugins/${plug}/manifest.json`, 'utf-8');
+	const manifest = JSON.parse(manifestContent);
 	const outPath = `./dist/${plug}/index.js`;
 
 	try {
 		const bundle = await rollup({
-			input: `./plugins/${plug}/${manifest.main}`,
+			input: `./plugins/${plug}/${manifest.main ?? 'index.ts'}`,
 			plugins,
+			output: {
+				dir: `./dist/${plug}`
+			},
 			onwarn: (warning) => {
-				if (warning.code === 'UNRESOLVED_IMPORT') {
+				if (warning.code === 'UNRESOLVED_IMPORT' && warning.exporter) {
 					const internals = Object.keys(map);
 					const isInternal = warning.exporter.startsWith('@unbound') || internals.includes(warning.exporter);
 
@@ -46,7 +61,9 @@ for (let plug of plugs) {
 		});
 
 		await bundle.write({
-			file: outPath,
+			// file: outPath,
+			dir: `./dist/${plug}`,
+
 			// name: 'addon',
 			globals(id) {
 				if (id.startsWith('@unbound')) {
@@ -55,7 +72,6 @@ for (let plug of plugs) {
 
 				return map[id] || null;
 			},
-			format: 'iife',
 			compact: true,
 			exports: 'named',
 		});

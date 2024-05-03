@@ -1,18 +1,20 @@
 {
-    "compilerOptions": {
-        "downlevelIteration": true,
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "target": "ESNext",
-        "resolveJsonModule": true,
-        "module": "ESNext",
-        "jsx": "react",
-        "baseUrl": "src",
-        "paths": {
-            "~/*": [
-                "*"
-            ]
-        }
-    },
-    "include": [ "plugins", "node_modules/unbound-types" ]
+	"compilerOptions": {
+		"downlevelIteration": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"target": "ESNext",
+		"resolveJsonModule": true,
+		"module": "ESNext",
+		"jsx": "react",
+		"baseUrl": "src",
+		"typeRoots": [
+			"node_modules/@unbound-mod"
+		],
+		"paths": {
+			"~/*": [
+				"*"
+			]
+		}
+	}
 }
