@@ -10,17 +10,17 @@
 	"author": "Mario <me@marioparaschiv.com> (github.com/marioparaschiv)",
 	"license": "Unlicensed",
 	"devDependencies": {
-		"@react-native-clipboard/clipboard": "^1.14.1",
+		"@react-native-clipboard/clipboard": "^1.16.1",
 		"@rollup/plugin-json": "^6.1.0",
-		"@rollup/plugin-node-resolve": "^15.2.3",
-		"@types/react": "^18.3.1",
-		"@unbound-mod/types": "^1.0.0",
+		"@rollup/plugin-node-resolve": "^16.0.0",
+		"@types/react": "^19.0.8",
+		"@unbound-mod/types": "^0.0.1",
 		"moment": "^2.30.1",
-		"react-native": "^0.74.1",
-		"react-native-reanimated": "^3.10.0",
-		"rollup": "^4.10.0",
+		"react-native": "^0.77.0",
+		"react-native-reanimated": "^3.16.7",
+		"rollup": "^4.32.0",
 		"rollup-plugin-iife": "github:unbound-mod/rollup-plugin-iife",
-		"rollup-plugin-swc3": "^0.11.0",
+		"rollup-plugin-swc3": "^0.12.1",
 		"rollup-plugin-typescript-paths": "^1.5.0"
 	}
 }
