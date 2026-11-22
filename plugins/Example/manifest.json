@@ -1,14 +1,13 @@
 {
-	"name": "Example Plugin",
-	"description": "This is an example addon.",
-	"version": "1.0.0",
-	"id": "eternal.example",
-	"icon": "debug",
-	"authors": [
-		{
-			"name": "eternal",
-			"id": "263689920210534400"
-		}
-	],
-	"main": "index.tsx"
+  "id": "unbound.join-channel-notifier",
+  "name": "Message Sender",
+  "description": "Salje poruke u odabrani kanal klikom u postavkama.",
+  "authors": [
+    {
+      "name": "Ivica",
+      "id": "0"
+    }
+  ],
+  "version": "3.6.0",
+  "main": "index.js"
 }
